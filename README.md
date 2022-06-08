@@ -24,8 +24,8 @@
 ### 自定义外网ip获取源
 默认从 [jsonip.com](https://jsonip.com)、[myip.ipip.net](http://myip.ipip.net) 中获取外网ip，会依次从上述网站获取外网IP，获取成功停止。
 要更改获取源需要：
-1. 在`DDNS.py`中`PublicIP`类中添加获取外网ip的类函数，保证返回字符串类型的ip值（如"123.123.123.123"
-2. `PublicIP`类的`public_ip_list`是获取源函数，在其中添加更改你的类方法。
+1. 在`DDNS.py`中[`PublicIP`](https://github.com/bo0inm/DNS-sync/blob/e0f4e75ac0d3c35fb9d74849e2509afe0048a6ac/DDNS.py#L51)类中添加获取外网ip的类函数，保证返回字符串类型的ip值（如"123.123.123.123"
+2. `PublicIP`类的[`public_ip_list`](https://github.com/bo0inm/DNS-sync/blob/e0f4e75ac0d3c35fb9d74849e2509afe0048a6ac/DDNS.py#L57)是获取源函数，在其中添加更改你的类方法。
 
 ## 定时任务
 
