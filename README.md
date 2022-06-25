@@ -30,4 +30,4 @@
 ## 定时任务
 
 脚本只运行一次，liunx可以使用crontab制作定时任务，如：
-`0 */2 * * * python3 ~/CODE/asare/DDNS/DDNS.py` 每两个小时更新一次
+`0 */2 * * * python3 YouPath/DDNS.py` 每两个小时更新一次
