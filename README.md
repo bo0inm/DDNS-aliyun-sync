@@ -2,7 +2,7 @@
 
 ## *自用的更新阿里云dns解析脚本*
 
-从外部获取公网ip地址，然后更新阿里云dns解析记录
+**从外部获取公网ip地址，然后更新阿里云dns解析记录**
 
 自家服务器nas用，有公网IP但是**是动态的公网IP**，可以接受IP变更后，**非第一时间变更DNS解析指向**，则可以试试这个脚本。
 * 自建ddns服务器还是需要一个固定ip的服务器，而且没必要
@@ -19,7 +19,7 @@
 2. 把`template.json`更名为`PRIVATE`（不带后缀名
 3. `python3 ./DDNS.py`
 
-`config.py` 有一些的设置项
+`config.py` 有一些一目了然的设置项
 
 ### 自定义外网ip获取源
 默认从 [jsonip.com](https://jsonip.com)、[myip.ipip.net](http://myip.ipip.net) 中获取外网ip，会依次从上述网站获取外网IP，获取成功停止。
