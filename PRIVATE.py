@@ -1,16 +1,17 @@
 from os import path
 
+# 必须配置下面四项
 
-# domainName: 域名
+# 域名
 domainName = "domain.name"
 
 # 需要匹配的记录值名
 KeyName = "@"
 
-# accessKeyId: 阿里云的 AccessKey ID
+# 阿里云的 AccessKey ID
 accessKeyId = "AccessKey ID"
 
-# accessSecret: 阿里云的AccessKey Secret
+# 阿里云的AccessKey Secret
 accessSecret = "AccessKey Secret"
 
 
