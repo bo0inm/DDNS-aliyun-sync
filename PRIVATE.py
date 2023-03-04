@@ -1,4 +1,4 @@
-from os import path
+from os import path, environ
 
 # 必须配置下面四项
 
@@ -14,6 +14,18 @@ accessKeyId = "AccessKey ID"
 # 阿里云的AccessKey Secret
 accessSecret = "AccessKey Secret"
 
+
+# docker ENV 覆盖文本配置
+try:
+    KeyName = environ['K']
+except KeyError:
+    KeyName = "@"
+
+try:
+    envs=(environ['DN'], environ['AKEY'], environ['ASECRET'])
+    (domainName, accessKeyId, accessSecret) = envs
+except KeyError:
+    pass
 
 # --- other setting---
 

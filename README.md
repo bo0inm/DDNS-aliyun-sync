@@ -14,12 +14,24 @@
 ## 依赖
 
 * python >= 3.5
-* `pip install alibabacloud_alidns20150109==3.0.1`
+* `alibabacloud_alidns20150109` == 3.0.1
 
 ## USE
 
+### Local
 1. 填入`PRIVATE.py`配置信息
-2. `python3 ./DDNS.py`
+2. `pip install alibabacloud_alidns20150109==3.0.1`
+3. `python3 ./DDNS.py`
+
+### docker
+<https://hub.docker.com/r/bo0inm/ddns-aliyun-sync>
+
+key|details
+-----|-----
+`-e DN=` | 域名 domainName
+`-e K=@` | 可选，需要匹配的`记录值`名
+`-e AKEY=` | 阿里云的 `AccessKey ID`
+`-e ASECRET=` | 阿里云的 `accessSecret`
 
 ### 自定义外网ip获取源
 默认从 [jsonip.com](https://jsonip.com)、[myip.ipip.net](http://myip.ipip.net) 中获取外网ip，会依次从上述网站获取外网IP，获取成功停止。
@@ -29,5 +41,5 @@
 
 ## 定时任务
 
-脚本只运行一次，liunx可以使用crontab制作定时任务，如：
-`0 */2 * * * python3 YouPath/DDNS.py` 每两个小时更新一次
+脚本(包括docker版本)只运行一次，liunx可以使用crontab制作定时任务，如：
+`0 */2 * * * python3 path/DDNS.py` 每两个小时更新一次
