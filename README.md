@@ -28,8 +28,8 @@
 
 key|details
 -----|-----
-`-e DN=` | 域名 domainName
-`-e K=@` | 可选，需要匹配的`记录值`名
+`-e DN=` | 域名 domain name
+`-e HN=@` | 可选，需要匹配的`主机记录`
 `-e AKEY=` | 阿里云的 `AccessKey ID`
 `-e ASECRET=` | 阿里云的 `accessSecret`
 
