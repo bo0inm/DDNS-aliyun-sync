@@ -17,12 +17,12 @@ accessSecret = "AccessKey Secret"
 
 # docker ENV 覆盖文本配置
 try:
-    KeyName = environ['K']
+    KeyName = environ["HN"]
 except KeyError:
     KeyName = "@"
 
 try:
-    envs=(environ['DN'], environ['AKEY'], environ['ASECRET'])
+    envs = (environ["DN"], environ["AKEY"], environ["ASECRET"])
     (domainName, accessKeyId, accessSecret) = envs
 except KeyError:
     pass
@@ -39,6 +39,6 @@ LogLevel = 20
 # 50 CRITICAL
 
 # log文件位置
-LOGPATH = path.join(path.dirname(__file__), 'DDNS.log')
+LOGPATH = path.join(path.dirname(__file__), "DDNS.log")
 
 BASEPATH = path.dirname(__file__)

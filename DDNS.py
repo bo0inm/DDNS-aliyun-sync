@@ -43,47 +43,71 @@ class PublicIP:
         self.public_ip_list = [
             self.ip_jsonip,
             self.ip_ipip,
+            self.ip_ifconfig,
         ]
 
     @staticmethod
     def ip_jsonip() -> str:
-        """https://jsonip.com"""
+        URL = "https://jsonip.com"
+
         try:
-            r = requests.get("https://jsonip.com")
+            r = requests.get(URL)
             if r.status_code == 200:
                 r = json.loads(r.text)
                 res = r["ip"]
-                LOGGER.debug("1 - jonip.com:" + str(res))
+                LOGGER.debug(f"{URL}: {str(res)}")
 
             else:
                 res = "failed"
-                LOGGER.warning("jsonip.com requests failed: " + str(r.status_code))
+                LOGGER.warning(f"{URL} requests failed: {str(r.status_code)}")
         except Exception as e:
             res = "failed"
-            LOGGER.warning("jsonip.com requests failed")
+            LOGGER.warning(f"{URL} requests failed")
             LOGGER.debug(e)
 
         return res
 
     @staticmethod
     def ip_ipip() -> str:
-        """http://myip.ipip.net"""
+        URL = "http://myip.ipip.net"
         from re import search
 
         try:
-            r = requests.get("http://myip.ipip.net")
+            r = requests.get(URL)
             if r.status_code == 200:
                 r = r.text
                 r = search(r"(\d{1,3}\.){3}\d{1,3}", r)
                 res = r.group()
-                LOGGER.debug("2 - ipip.com:" + str(res))
+                LOGGER.debug(f"{URL}: str(res)")
 
             else:
                 res = "failed"
-                LOGGER.warning("jsonip.com requests failed: " + str(r.status_code))
+                LOGGER.warning(f"{URL} requests failed: {str(r.status_code)}")
         except Exception as e:
             res = "failed"
-            LOGGER.warning("jsonip.com requests failed")
+            LOGGER.warning(f"{URL} requests failed")
+            LOGGER.debug(e)
+
+        return res
+
+    @staticmethod
+    def ip_ifconfig() -> str:
+        URL = "https://ifconfig.co"
+
+        try:
+            r = requests.get(URL + "/json")
+            if r.status_code == 200:
+                r = json.loads(r.text)
+                res = r["ip"]
+
+                LOGGER.debug(f"{URL}: str(res)")
+
+            else:
+                res = "failed"
+                LOGGER.warning(f"{URL} requests failed: {str(r.status_code)}")
+        except Exception as e:
+            res = "failed"
+            LOGGER.warning(f"{URL} requests failed")
             LOGGER.debug(e)
 
         return res
